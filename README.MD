@@ -1,9 +1,9 @@
 1、项目开发采用python3.9  django3.2  
-    采用python docxtpl从合同模板和数据生成合同
-    采用libreoffice转换docx到pdf
+    采用python docxtpl从合同模板和数据生成合同。
+    采用libreoffice转换docx到pdf。
     服务接收参数和返回参数均采用json格式。其中文件采用base64编码后作为json字段传输。
 
-2、由于部署繁琐，需要安装python3.9  pip3  libreoffice ，还需要安装中文语言包，所以环境采用docker镜像方式 
+2、由于部署繁琐，需要安装python3.9  pip3  libreoffice ，还需要系统安装中文语言包，所以环境采用docker方式安装部署和发布。 
 
 3、docker镜像以 centos8为基础。 安装了中文语言包。中文字体。python3.9。 pip3。 libreoffice。 
 

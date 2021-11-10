@@ -13,6 +13,10 @@ from docx_utils.pdf_maker import doc2pdf_linux
 
 # Create your views here.
 
+def home(request):
+    
+    return JsonResponse({'key':'value'})
+
 def contract(request):
     if request.method == 'POST':
         

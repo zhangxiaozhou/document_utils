@@ -16,7 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+import docx_utils.views
+
 urlpatterns = [
+    path('', docx_utils.views.home),
+    
     path('docx/', include('docx_utils.urls')),
+    
     path('admin/', admin.site.urls),
 ]
