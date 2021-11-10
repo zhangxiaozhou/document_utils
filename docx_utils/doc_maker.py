@@ -9,7 +9,7 @@ def save_template_file(file_data):
     FILE_BASE_PATH = 'doc_tmp' 
     FILE_EXTENSION = '.docx'
     
-    now = time.time_ns() 
+    now = time.strftime("%Y%m%d%H%M%S", time.localtime())
     
     file_dir = os.getcwd() + os.sep + FILE_BASE_PATH + os.sep + str(now) 
     exists = os.path.exists(file_dir)

@@ -5,6 +5,8 @@ import json
 
 import base64
 
+import time
+
 from docx_utils.doc_maker import save_template_file, render_doc
 
 from docx_utils.pdf_maker import doc2pdf_linux
@@ -13,6 +15,9 @@ from docx_utils.pdf_maker import doc2pdf_linux
 
 def contract(request):
     if request.method == 'POST':
+        
+        print('开始生成pdf: ' + time.strftime("%Y%m%d%H%M%S", time.localtime()))
+        
         request_body = request.body 
         
         request_dict = json.loads(request_body) 
@@ -37,6 +42,9 @@ def contract(request):
             response = HttpResponse(json_str);
             response['Content-type'] = 'application/json'
             
+            
+            print('结束生成pdf: ' + time.strftime("%Y%m%d%H%M%S", time.localtime()))
+
             return response
          
 
