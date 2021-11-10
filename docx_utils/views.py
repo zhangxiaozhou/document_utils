@@ -7,6 +7,7 @@ import base64
 
 import time
 
+
 from docx_utils.doc_maker import save_template_file, render_doc
 
 from docx_utils.pdf_maker import doc2pdf_linux
@@ -15,7 +16,9 @@ from docx_utils.pdf_maker import doc2pdf_linux
 
 def home(request):
     
-    return JsonResponse({'key':'value'})
+    
+    return render(request, 'home.html')
+
 
 def contract(request):
     if request.method == 'POST':

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎</title>
+</head>
+<body>
+    <p>
+        1、调用方式采用http方式调用
+        2、参数传递使用json，整体结构
+        {
+            "key1": ....,
+            "key2": ....,
+            "date":"9999-12-31",
+            "user":{
+                "name":"king",
+                "sex":"M"
+            },
+            "file_base64":"这里固定为word模板文件的base64编码字符串"
+        }
+        其中除 file_base64 部分固定外，其他部分由自己客户端自己定义。
+        但基于合同模板的使用场景，建议客户端采取固定结构且包含全部属性的数据模型，使用后续所有合同模板的数据需求
+        
+        合同模板中的表达式 应与请求体的对象对应。如按照上面json示例，则word模版中， 取 date 应该为  {{date}},
+        取user的name信息应为 {{user.name}}
+    </p>
+</body>
+</html>

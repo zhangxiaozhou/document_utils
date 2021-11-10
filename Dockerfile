@@ -1,7 +1,7 @@
 FROM zhangxiaozhou/centos8zh_python39_libreoffice
  
-env LANG="zh_CN.UTF-8"
-env LANGUAGE="zh_CN.UTF-8"
+ENV LANG="zh_CN.UTF-8"
+ENV LANGUAGE="zh_CN.UTF-8"
 
 #设置path soffice
 ENV LIBREOFFICE /opt/libreoffice7.2/program
