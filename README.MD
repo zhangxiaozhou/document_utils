@@ -8,9 +8,12 @@
 3、docker镜像以 centos8为基础。 安装了中文语言包。中文字体。python3.9。 pip3。 libreoffice。 
 
 4、项目运行。
-    先在项目根目录执行   docker build -t docx2pdf .
-    注意后面那个 "." ，其中docx2pdf部分可根据喜好更换
+    先在项目根目录执行   “ docker build -t docx2pdf . ”
+    
+    注意后面那个 "." 
 
     再运行 docker run -itd -p 8000:8000 docx2pdf  
 
+    其中docx2pdf部分可根据喜好更换
+    
     至此8000端口服务已经可以正常访问。
