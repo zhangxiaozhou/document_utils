@@ -8,7 +8,7 @@
 </head>
 <body>
     <p>
-        <article>1、调用方式采用http方式调用</article> 
+        <article>1、调用方式采用 http <span style="color: red;"><strong>POST</strong></span> 方式调用</article> 
         <article>2、参数传递使用json，整体结构</article>
         {
             "key1":"", 
@@ -20,8 +20,8 @@
             },
             "file_base64":"这里固定为word模板文件的base64编码字符串"
         }
-        <article>3、其中除 file_base64 部分固定外，其他部分由自己客户端自己定义。
-            但基于合同模板的使用场景，建议客户端采取固定结构且包含全部属性的数据模型，使用后续所有合同模板的数据需求</article>
+        <article>3、其中除  <span style="color: red;"><strong>file_base64</strong></span>部分固定外，其他部分由自己客户端自己定义。
+            但基于合同模板的使用场景，建议客户端采取<span style="color: red;"><strong>固定结构且包含全部属性</strong></span>的数据模型，满足后续所有合同模板的数据需求</article>
         
         <article>4、合同模板中的表达式 应与请求体的对象对应。如按照上面json示例，则word模版中， 取 date 应该为  {{date}},
             取user的name信息应为 {{user.name}}</article>

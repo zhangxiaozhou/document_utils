@@ -10,24 +10,30 @@ import time
 
 from docx_utils.doc_maker import save_template_file, render_doc
 
-from docx_utils.pdf_maker import doc2pdf_linux
+from docx_utils.pdf_maker import doc2pdf_linux, file2base64
+
+import logging
 
 # Create your views here.
 
+logger = logging.getLogger('django')
+
 def home(request):
-    
     
     return render(request, 'home.html')
 
 
 def contract(request):
+    
     if request.method == 'POST':
         
-        print('开始生成pdf: ' + time.strftime("%Y%m%d%H%M%S", time.localtime()))
+        logger.info('开始处理请求') 
         
         request_body = request.body 
         
         request_dict = json.loads(request_body) 
+        
+        logger.info('请求参数 %s', str(request_dict))
         
         file_base64 = request_dict.get('file_base64')
         
@@ -39,19 +45,24 @@ def contract(request):
         
         pdf_path = doc2pdf_linux(contract_docx)
         
-        with open(pdf_path, 'rb') as f:
-            
-            file_content = f.read()
-            pdf_base64 = base64.b64encode(file_content)
-            
-            json_str = json.dumps({'pdf_base64': str(pdf_base64, encoding='utf-8')})
-            
-            response = HttpResponse(json_str);
-            response['Content-type'] = 'application/json'
-            
-            
-            print('结束生成pdf: ' + time.strftime("%Y%m%d%H%M%S", time.localtime()))
-
-            return response
+        pdf_base64 = file2base64(pdf_path)
+        
+        result = {
+            'pdf_base64': str(pdf_base64, encoding='utf-8'),
+            'msg': 'ok'
+        }
+        
+        logger.info('结束处理请求，并返回客户端')
+        
+        return JsonResponse(result) 
+    else:
+        result = {
+            'pdf_base64': '',
+            'msg': '接口仅支持post方法,请先访问项目根路径查看文档'
+        } 
+        
+        logger.info('get请求返回错误信息给客户端')
+        
+        return JsonResponse(result)
          
 
