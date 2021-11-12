@@ -32,18 +32,15 @@ def contract(request):
         request_body = request.body 
         
         request_dict = json.loads(request_body) 
-        
         logger.info('请求参数 %s', str(request_dict))
         
         file_base64 = request_dict.get('file_base64')
-        
         file_data = base64.b64decode(file_base64)
-        
         template_path = save_template_file(file_data)
          
-        contract_docx = render_doc(template_path, request_dict)
+        contract_docx_path = render_doc(template_path, request_dict)
         
-        pdf_path = doc2pdf_linux(contract_docx)
+        pdf_path = doc2pdf_linux(contract_docx_path)
         
         pdf_base64 = file2base64(pdf_path)
         
