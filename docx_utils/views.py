@@ -5,9 +5,6 @@ import json
 
 import base64
 
-import time
-
-
 from docx_utils.doc_maker import save_template_file, render_doc
 
 from docx_utils.pdf_maker import doc2pdf_linux, file2base64
