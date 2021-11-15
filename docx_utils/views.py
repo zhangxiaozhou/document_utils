@@ -13,14 +13,14 @@ import logging
 
 # Create your views here.
 
-logger = logging.getLogger('django')
-
 def home(request):
     
     return render(request, 'home.html')
 
 
 def contract(request):
+    
+    logger = logging.getLogger('django')
     
     if request.method == 'POST':
         

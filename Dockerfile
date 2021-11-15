@@ -15,8 +15,6 @@ EXPOSE 8000
 
 #用户工作目录
 WORKDIR /wwwroot/document_utils
- 
-# ENTRYPOINT python3 manage.py runserver 0.0.0.0:8000
 
 ENTRYPOINT uwsgi --ini uwsgi.ini
 

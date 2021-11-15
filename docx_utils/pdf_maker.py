@@ -3,9 +3,11 @@ import os
 import base64 
 import logging
 
-logger = logging.getLogger('django')
 
 def doc2pdf_linux(doc_path):
+    
+    logger = logging.getLogger('django')
+
     pdf_extension = ".pdf"
     
     pdf_path = os.path.dirname(doc_path)
@@ -29,6 +31,9 @@ def doc2pdf_linux(doc_path):
 
 
 def file2base64(file_path):
+    
+    logger = logging.getLogger('django')
+    
     logger.info("%s 转换 base64开始");
     
     with open(file_path, 'rb') as f:
