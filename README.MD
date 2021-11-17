@@ -1,3 +1,5 @@
+docx模板生成目标docx, 目标docx转换pdf
+
 1、项目开发采用python3.9  django3.2  
     采用python docxtpl从合同模板和数据生成合同。
     采用libreoffice转换docx到pdf。
