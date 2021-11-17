@@ -26,6 +26,13 @@
         <article>4、合同模板中的表达式 应与请求体的对象对应。如按照上面json示例，则word模版中，  
             去 date 值 写法为   {% verbatim %}{{date}}{% endverbatim %} 
             取user的name信息应为 {% verbatim %}  {{user.name}} {% endverbatim %} </article>
+
+        <article>5、返回报文结构 
+            result = {
+                'pdf_base64': 'pdf base64编码字符串'
+                'msg': 'ok'
+            }
+        </article>
     </p>
 </body>
 </html>
