@@ -11,7 +11,7 @@ ENV PATH $LIBREOFFICE:$PATH
 COPY ./ /wwwroot/document_utils
 
 #暴露端口
-EXPOSE 8000
+EXPOSE 7000
 
 #用户工作目录
 WORKDIR /wwwroot/document_utils
